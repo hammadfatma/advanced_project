@@ -31,6 +31,7 @@ dependencies:
   build_runner: ^2.4.9
   cupertino_icons: ^1.0.2
   dio: ^5.6.0
+  firebase_core: ^2.24.2
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
