@@ -10,7 +10,7 @@ platform :android do
     sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons"
     firebase_app_distribution(
         app: "1:272310957351:android:b339426e33022d98852502",
-        firebase_cli_token: "1//03aw7xm3IiDRCCgYIARAAGAMSNwF-L9IrRz3MCLMxNjn25VSJe_7iqC9zydNg0MHDGrP7l0qcHeTcp7rwYpXpsjCDzEtVjxwu9uk",
+        firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
         android_artifact_type: "APK",
         android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
         testers: "fatmahammad579@gmail.com",
@@ -18,23 +18,3 @@ platform :android do
   )
   end
 end
-
-
-
-# default_platform(:android)
-
-# platform :android do
-#   desc "Lane for Android Firebase App Distribution"
-#   lane :firebase_distribution do
-#     sh "flutter clean"
-#     sh "flutter build apk --release --flavor production --target lib/main_production.dart --no-tree-shake-icons"
-#     firebase_app_distribution(
-#         app: "1:272310957351:android:b339426e33022d98852502",
-#         firebase_cli_token: "1//03ASL3PfKkP1NCgYIARAAGAMSNwF-L9IrsyvaISxN6Pv23r86YqsP8TxE2GKZ596Mi-lWSnKTtdVAWkf7FA795VV7YidIhfndpd0",
-#         android_artifact_type: "APK",
-#         android_artifact_path: "build/app/outputs/flutter-apk/app-production-release.apk",
-#         testers: "fatmahammad579@gmail.com",
-#         release_notes: "Testing something with GitHub Actions, trying to push directly from master branch",
-#   )
-#   end
-# end
