@@ -1,5 +1,6 @@
 import 'package:advanced_complete_course/core/di/dependency_injection.dart';
 import 'package:advanced_complete_course/core/routing/routes.dart';
+import 'package:advanced_complete_course/features/home/logic/cubit/home_cubit.dart';
 import 'package:advanced_complete_course/features/home/ui/home_screen.dart';
 import 'package:advanced_complete_course/features/login/logic/cubit/login_cubit.dart';
 import 'package:advanced_complete_course/features/login/ui/login_screen.dart';
@@ -34,10 +35,13 @@ class AppRouter {
         );
       case Routes.homeScreen:
         return MaterialPageRoute(
-          builder: (_) => const HomeScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => HomeCubit(getIt())..getSpecializations(),
+            child: const HomeScreen(),
+          ),
         );
       default:
+        return null;
     }
-    return null;
   }
 }
